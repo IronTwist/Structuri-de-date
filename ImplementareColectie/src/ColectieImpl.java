@@ -6,24 +6,34 @@ import java.util.List;
 public class ColectieImpl<T> implements Colectie<T> {
 	
 	private List<T> elemente;
+//	private T elemCurent;
 	
-	public ColectieImpl() {
+	public ColectieImpl() {								//Colectie
 		this.elemente = new ArrayList<T>();
 	}
 	
-	public void adauga(T element) {
+//	public T elem() {
+//		return this.elemCurent = elemente.iterator().next();
+//		
+//	}
+	
+	public void adauga(T element) {						//adauga
 		this.elemente.add(element);
 	}
 	
-	public void sterge(T element) {
+	public void sterge(T element) {						//sterge
 		boolean b = this.elemente.remove(element);
 	}
 	
-	public int dim() {
+	public boolean cauta(T element) {					//cauta
+		return this.elemente.contains(element);
+	}
+	
+	public int dim() {									//dim
 		return this.elemente.size();
 	}
 	
-	public Iterator<T> iterator(){
+	public Iterator<T> iterator(){						//iterator
 		return new BagIterator<T>(this); 
 	}
 	
