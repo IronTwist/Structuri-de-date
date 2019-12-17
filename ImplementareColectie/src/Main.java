@@ -23,18 +23,17 @@ public class Main {
 		int bancnoteDe1 = 0;
 		int meniuOpt;
 		
-		ColectieImpl<Integer> portofel = new ColectieImpl<Integer>();					//creare portofel
-		Iterator<Integer> it = portofel.iterator();										//creare iterator
+		ColectieImpl<Integer> portofel = new ColectieImpl<Integer>();		//creare portofel
+		Iterator<Integer> it = portofel.iterator();							//creare iterator
 			
-		do {																					//Meniu
+		do {																//Meniu
 			meniuOpt  = Meniu();
 		
 		switch(meniuOpt) {
-			case 0: 																							//case 0 extragere bancnota
+			case 0: 														//case 0 extragere bancnota
 				elemDeSters =(int) citesteTastatura("Introdu bancnota care vrei sa fie extrasa din portofel: ");
 				portofel.sterge(elemDeSters);		//stergere int
 
-					 
 						 switch(elemDeSters) {				//scadere bancnota
 						 	case 1:
 						 		bancnoteDe1--;
@@ -61,7 +60,7 @@ public class Main {
 				suma -= elemDeSters;
 				
 				break;
-			case 1:																							//case 1 Adaugare bancnote in portofel
+			case 1:														//case 1 Adaugare bancnote in portofel
 				do {	
 				adaugaBan = citesteTastatura("\nAdauga bani\n(1,5,10,50,100,500)(0 pentr a opri)\n in portofel: ");
 				
@@ -73,7 +72,7 @@ public class Main {
 					
 				}while(adaugaBan != 0);
 				break;
-			case 2:																							//Afisare bani in portofel
+			case 2:														//Case 2 Afisare bani in portofel
 				while(it.hasNext()) {
 					 bancnota = it.next();
 						 switch(bancnota) {
@@ -112,7 +111,7 @@ public class Main {
 				System.out.println("In portofel se afla " + bancnoteDe500 + " bancnote de 500 de lei.");
 				
 				break;
-			case 3: 																			//case 3 Terminare program
+			case 3: 											//case 3 Terminare program
 				System.out.println("\nProgram termminat!");
 				break;
 			default:
@@ -122,11 +121,11 @@ public class Main {
 		}while(meniuOpt != 3);		//end while meniu
 	}//end Main
 	
-	public static void  adaugaBancnote(ColectieImpl<Integer> col, int suma) {					//Functie adauga bancnote
+	public static void  adaugaBancnote(ColectieImpl<Integer> col, int suma) {	//Functie adauga bancnote
 		col.adauga(suma);
 	}
 	
-	public static int citesteTastatura(String str) {											//Functie citire tastatura
+	public static int citesteTastatura(String str) {							//Functie citire tastatura
 		System.out.print(str);
 		
 		try {
@@ -141,7 +140,7 @@ public class Main {
 		
 	}
 	
-	public static int Meniu() {																//Functie afisare meniu
+	public static int Meniu() {													//Functie afisare meniu
 		System.out.println("\n0. Scoate o bancnota din portofel");
 		System.out.println("1. Adauga bani in portofel");
 		System.out.println("2. Afiseaza portofel");
