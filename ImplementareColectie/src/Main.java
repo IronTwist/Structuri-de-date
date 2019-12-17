@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	/**
-	 * @param args
+	 * @param Implementare Colectie Fratean Razvan
 	 */
 	public static void main(String[] args) {
 		int suma=0;
