@@ -1,7 +1,6 @@
 import java.util.Iterator;
 import java.util.Scanner;
 
-
 public class Main {
 
 	/**
@@ -23,7 +22,7 @@ public class Main {
 		int bancnoteDe1 = 0;
 		int meniuOpt;
 		
-		ColectieImpl<Integer> portofel = new ColectieImpl<Integer>();		//creare portofel
+		ColectieImpl<Integer> portofel = new ColectieImpl<Integer>();		//creare portofel (Colectie)
 		Iterator<Integer> it = portofel.iterator();							//creare iterator
 			
 		do {																//Meniu
@@ -70,7 +69,7 @@ public class Main {
 						System.out.println("Moneda invalida!");
 					}
 					
-				}while(adaugaBan != 0);
+				}while(adaugaBan != 0);									//end while
 				break;
 			case 2:														//Case 2 Afisare bani in portofel
 				while(it.hasNext()) {
@@ -99,7 +98,7 @@ public class Main {
 						 }
 					 
 					 suma += bancnota;
-				}
+				}														//end while
 					
 				System.out.println("Bancnote in portofel: " + portofel.dim());
 				System.out.println("Suma din portofel este: " + suma + " lei");

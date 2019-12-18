@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="B1/src"/>
+	<classpathentry kind="src" path="B2Structuri/src"/>
+	<classpathentry kind="src" path="B4Structuri/src"/>
+	<classpathentry kind="src" path="ImplementareColectie/src"/>
+	<classpathentry kind="src" path="Lab2Prob2Secvente/src"/>
+	<classpathentry kind="src" path="Palindrom/src"/>
+	<classpathentry kind="src" path="Problema1Structuri/src"/>
+	<classpathentry kind="src" path="Problema3Struct/src"/>
+	<classpathentry kind="src" path="ProblemaLungimeBete/src"/>
+	<classpathentry kind="output" path="B1/bin"/>
+</classpath>
