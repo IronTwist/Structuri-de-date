@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Main {
 
+	@SuppressWarnings("null")
 	public static void main(String[] args) {
 
 		Suspect unu = new Suspect();
@@ -13,13 +14,14 @@ public class Main {
 		
 		//System.out.println(unu.getxCoordonate());
 		
-	//	Map<intc, intv> listaSuspecti = new Map();
+	Map<String, Object> listaSuspecti = null;
 		
-		
-	//	Set<Suspect> listaSuspecti = new Set<Suspect>();
-		
-	//	listaSuspecti.add(unu.getIMEI());
-		
+	listaSuspecti.put("123", unu);
+	listaSuspecti.put("123", 12);
+	
+	System.out.println(listaSuspecti.get());
+	
+	
 		
 	//	System.out.println(listaSuspecti.remove(unu.));
 		
