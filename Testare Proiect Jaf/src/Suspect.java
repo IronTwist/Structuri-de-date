@@ -1,6 +1,11 @@
 
 public class Suspect {
 	
+	int IMEI;
+	int timestamp;
+	double xCoordonate;
+	double yCoordonate;
+	
 	protected int getIMEI() {
 		return IMEI;
 	}
@@ -33,10 +38,7 @@ public class Suspect {
 		this.yCoordonate = yCoordonate;
 	}
 	
-	int IMEI;
-	int timestamp;
-	double xCoordonate;
-	double yCoordonate;
+	
 	
 	
 }
