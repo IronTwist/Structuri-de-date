@@ -23,13 +23,13 @@ public class Main {
 		int meniuOpt;
 		
 		ColectieImpl<Integer> portofel = new ColectieImpl<Integer>();		//creare portofel (Colectie)
-		Iterator<Integer> it = portofel.iterator();							//creare iterator
+		Iterator<Integer> it = portofel.iterator();				//creare iterator
 			
-		do {																//Meniu
+		do {									//Meniu
 			meniuOpt  = Meniu();
 		
 		switch(meniuOpt) {
-			case 0: 														//case 0 extragere bancnota
+			case 0: 												//case 0 extragere bancnota
 				elemDeSters =(int) citesteTastatura("Introdu bancnota care vrei sa fie extrasa din portofel: ");
 				portofel.sterge(elemDeSters);		//stergere int
 
