@@ -15,7 +15,7 @@ public class Main {
 			System.out.println("2. Adauga date pentru inca o persoana");
 			System.out.println("3. Introdu timpul si coordonatele la care a avut loc jaful");
 			System.out.println("4. Afisare date");
-			System.out.println("5. Coordonate a 2-a locatie");
+			System.out.println("5. Incarca a doua lista si noile coordonate");
 			System.out.println("6. Analiza lista la banca");
 			System.out.println("7. Afisare lista cu posibil suspecti");
 			System.out.println("8. Exit");
@@ -38,11 +38,14 @@ public class Main {
 		int timpJaf=0;
 		double coordonataX = 0;
 		double coordonataY = 0;
+		int lista = 0;
 		
 		Persoana Pers[]= null;
 		Set<Persoana> listaPersoane = new HashSet<Persoana>();
 		Set<Integer> listaSuspecti = new HashSet<Integer>();
-
+		Iterator<Integer> iter = listaSuspecti.iterator();
+		
+	
 		do {
 			menu = meniu();
 			switch(menu) {
@@ -52,6 +55,7 @@ public class Main {
 							listaPersoane.add(Pers[i]);
 						}
 						System.out.println("Datele s-au citit din fisier");
+						lista = 1;
 					   break;
 				case 2:
 						//Adauga date pentru inca o persoana
@@ -78,9 +82,23 @@ public class Main {
 						}
 						
 					   break;
-				case 5:
+				case 5:	listaPersoane.removeAll(listaPersoane);
+						
+						Pers = CitireDate.citireDinFisier("F:\\GitHub\\Structuri-de-date\\Testare Proiect Jaf\\src\\BazaDate\\Lista2.txt");
+						for(int i=0; i< Pers.length; i++) {				//adaug in lista cu persoane
+							listaPersoane.add(Pers[i]);
+						}
+						System.out.println("Datele s-au citit din fisier");
+						
+						System.out.println("Dati noile coordonate");
+						coordonataX = Double.parseDouble(CitireDate.citesteDate("Coordonata x: "));
+						coordonataY = Double.parseDouble(CitireDate.citesteDate("Coordonata y: "));
+						lista = 2;
 					   break;
 				case 6:	//Analiza lista la banca
+					int[] sterge = new int[listaSuspecti.size()];
+					
+					if(lista == 1) {
 						for(Persoana p: listaPersoane) {
 							int timp = p.getTimestamp();
 							
@@ -97,17 +115,61 @@ public class Main {
 							}else {
 								System.out.println("Nu e ok timpul");
 							}
-						}
-					
+						}//end for
+					}else if(lista == 2) {
+						//analiza lista 2
+						
+						
+						for(Persoana p: listaPersoane) {					//parcurg lista cu persoane
+							int timp = p.getTimestamp();					//timp persoane
+							int imei = p.getIMEI();
+							
+							while(iter.hasNext()) {					//parcurg lista cu suspecti
+								
+								if(imei == iter.next()) {					//daca s.IMEI == p.Imei
+									System.out.println("Era suspect si la banca");
+									if(timpJaf + 15 >= timp && timp >= timpJaf + 10) {
+										System.out.println("Era suspect la banca si e suspect in continuare");
+										iter.remove();
+									}else {
+										System.out.println("Era suspect la banca dar e prea departe de locul 2");
+										iter.remove();
+									}
+									
+								}else {
+									System.out.println("Nu era suspect la banca");
+									listaSuspecti.remove(p.getIMEI());
+									iter.remove();
+								}
+								
+							}//while for suspecti
+						}//end for persoane
+						
+					}else {
+						System.out.println("Nu ai incarcat nicio lista");
+					}
+					//sterg persoanele care nu sunt suspecte din lista
+//					for(int i=0; i < sterge.length; i++) {
+//						listaSuspecti.remove(sterge[i]);
+//					}
 					   break;
 				case 7:																		//Afisare lista cu posibil suspecti
+					if (listaSuspecti.isEmpty()) {
+						System.out.println("Nu am suspecti");
+					}
+					
+					while(iter.hasNext()) {
+						System.out.println(iter.next());
+					}
+					
+					System.out.println(">>>>>>>>>>>>>>>>>");
 						for(int pS:listaSuspecti) {
 							System.out.println("\tIMEI: " + pS);
 							for(Persoana xp: listaPersoane) {
 								
 								if(pS == xp.getIMEI()) {
 									
-									System.out.println("\t\tCu coordonate (x,y): (" + xp.getxCoordonate() +","+ xp.getyCoordonate() + ")");
+								//	System.out.println("\t\tCu coordonate (x,y): (" + xp.getxCoordonate() +","+ xp.getyCoordonate() + ")");
 								}
 							}
 						}
@@ -120,63 +182,6 @@ public class Main {
 			}
 			
 		}while(menu != 8);//end while
-		
-		
-		
-//		Set<Suspect> lista1 = new HashSet<Suspect>();
-//		Iterator<Suspect> iter = lista1.iterator();
-//		
-//		Suspect suspect1 = new Suspect(723,712,2.1,3.1);
-//		Suspect suspect2 = new Suspect(223,12,2.4,3.2);
-//		Suspect suspect3 = new Suspect(623,423,4.8,2.1);
-//		Suspect suspect4 = new Suspect(623,423,4.9,2.1);
-//		
-//		
-//		Suspect suspect5 = new Suspect(Integer.parseInt(citesteDate("IMEI: ")),Integer.parseInt(citesteDate("timp: ")), Double.parseDouble(citesteDate("x: ")),Double.parseDouble(citesteDate("y:")));
-//	
-//		
-//		lista1.add(suspect1);
-//		lista1.add(suspect2);
-//		lista1.add(suspect3);
-//		lista1.add(suspect2);
-//		lista1.add(suspect3);
-//		lista1.add(suspect4);
-//		lista1.add(suspect5);
-//		
-//		
-//		//System.out.println(lista1.size());
-//		//System.out.println(lista1);
-//		
-//		while(iter.hasNext()) {
-//			
-//			int	x  = iter.next().getIMEI();
-//			String str = Integer.toString(x);
-//			System.out.println(str);
-//		}
-//		
-//		Set<Suspect> lista2 = new HashSet<Suspect>();
-//		
-//		for(Suspect s: lista1) {
-//			System.out.println(s.getIMEI());
-//			
-//				if(s.getTimestamp() == 423) {
-//					System.out.println("Posibil suspect");
-//					lista2.add(s);
-//				}else {
-//					System.out.println("Nu este suspect");
-//				}
-//			System.out.println("Time: " + s.getTimestamp());
-//			System.out.println("Coordonatele x si y sunt: " + s.getxCoordonate() + " . " + s.getyCoordonate());
-//			System.out.println("__________________");
-//		}
-//		
-//		System.out.println(lista2.size());
-//		System.out.println("IMEI-ul suspect: ");
-//		for(Suspect x : lista2) {
-//			System.out.println(x.getIMEI());
-//			System.out.print("Coordonata x: " + x.getxCoordonate());
-//		}
-
 
 	}//end main
 	
