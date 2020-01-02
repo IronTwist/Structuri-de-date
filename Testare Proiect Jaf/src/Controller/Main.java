@@ -43,9 +43,7 @@ public class Main {
 		Persoana Pers[]= null;
 		Set<Persoana> listaPersoane = new HashSet<Persoana>();
 		Set<Integer> listaSuspecti = new HashSet<Integer>();
-		
-		
-	
+
 		do {
 			menu = meniu();
 			switch(menu) {
