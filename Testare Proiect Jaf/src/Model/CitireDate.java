@@ -2,7 +2,11 @@ package Model;
 
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CitireDate {
@@ -58,9 +62,7 @@ public class CitireDate {
 					
 					i++;
 				}//end while
-//				for( i=0; i < Pe.length; i++) {
-//					System.out.println("Afisare imei: " + Pe[i].getIMEI());
-//				}
+
 				fisier.close();
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -69,5 +71,7 @@ public class CitireDate {
 		
 		return Pe;
 	}//end citireDinFisier
+	
+	
 	
 }

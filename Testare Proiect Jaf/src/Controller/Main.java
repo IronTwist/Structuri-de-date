@@ -2,6 +2,10 @@ package Controller;
 
 import Model.*;
 import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.lang.Math;
 import java.math.BigDecimal;
 import java.math.RoundingMode; 
@@ -63,6 +67,7 @@ public class Main {
 								Double.parseDouble(CitireDate.citesteDate("\t\tCoordonata x: ")), 
 								Double.parseDouble(CitireDate.citesteDate("\t\tCoordonata y: "))
 						));
+						
 					   break;
 					   
 				case 3:	
@@ -103,7 +108,7 @@ public class Main {
 					   break;
 				case 6:	//Analiza lista 
 					
-						int[] sterge = new int[10];
+						int[] sterge = new int[listaSuspecti.size()];
 						int indexSterge = 0;
 						
 						System.out.println("\n\tAnaliza lista persoane (nr de pers. in lista= " + listaPersoane.size() + ")");
@@ -129,13 +134,15 @@ public class Main {
 								}
 							}//end for
 						}else if(lista == 2) {										//analiza lista 2
-
+					
 							for(Persoana p: listaPersoane) {					//parcurg lista cu persoane
 								int timp = p.getTimestamp();					//timp persoane
 								int imei = p.getIMEI();
 			
 								for(Integer suspect: listaSuspecti) {			//parcurg lista cu suspecti
 									int imeiSuspect = suspect;
+									
+									
 									
 									if(imei == imeiSuspect) {					//doar daca era suspect la banca
 										System.out.println("\t\tImei:" +imei+ " ->Era suspect la banca");
@@ -161,6 +168,7 @@ public class Main {
 										}
 										
 									}//end if imei suspect
+										
 									
 								}//end for suspecti
 							}//end for persoane
@@ -184,11 +192,11 @@ public class Main {
 							while(suspIterator.hasNext()) {
 								int imei = suspIterator.next();
 								
-								System.out.println("\t\tIMEI: " + imei);
+								
 								for(Persoana xp: listaPersoane) {
 									
 									if(imei == xp.getIMEI()) {
-										
+										System.out.println("\t\tIMEI: " + imei);
 										System.out.println("\t\t\tCu coordonate (x,y): (" + xp.getxCoordonate() +","+ xp.getyCoordonate() + ")");
 									}
 								}
