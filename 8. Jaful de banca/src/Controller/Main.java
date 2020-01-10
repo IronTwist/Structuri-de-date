@@ -53,7 +53,7 @@ public class Main {
 			switch(menu) {
 				case 1://Incarca lista din fisier
 						listaPersoane.removeAll(listaPersoane);
-						Pers = CitireDate.citireDinFisier("F:\\GitHub\\Structuri-de-date\\Testare Proiect Jaf\\src\\BazaDate\\Lista1.txt");
+						Pers = CitireDate.citireDinFisier("F:\\GitHub\\Structuri-de-date\\8. Jaful de banca\\src\\BazaDate\\Lista1.txt");
 						for(int i=0; i< Pers.length; i++) {				//adaug in lista cu persoane
 							listaPersoane.add(Pers[i]);
 						}
@@ -95,7 +95,7 @@ public class Main {
 					   break;
 				case 5:	listaPersoane.removeAll(listaPersoane);
 						
-						Pers = CitireDate.citireDinFisier("F:\\GitHub\\Structuri-de-date\\Testare Proiect Jaf\\src\\BazaDate\\Lista2.txt");
+						Pers = CitireDate.citireDinFisier("F:\\GitHub\\Structuri-de-date\\8. Jaful de banca\\src\\BazaDate\\Lista2.txt");
 						for(int i=0; i< Pers.length; i++) {				//adaug in lista cu persoane
 							listaPersoane.add(Pers[i]);
 						}
@@ -197,6 +197,7 @@ public class Main {
 									
 									if(imei == xp.getIMEI()) {
 										System.out.println("\t\tIMEI: " + imei);
+										System.out.println("\t\t\tTimp: " + xp.getTimestamp());
 										System.out.println("\t\t\tCu coordonate (x,y): (" + xp.getxCoordonate() +","+ xp.getyCoordonate() + ")");
 									}
 								}
